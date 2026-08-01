@@ -1,0 +1,36 @@
+# robots.txt for https://www.builtrobotics.com/
+
+sitemap: https://www.builtrobotics.com/sitemaps-1-sitemap.xml
+sitemap: https://built.solar/sitemaps-1-sitemap.xml
+
+# live - don't allow web crawlers to index cpresources/ or vendor/
+
+User-agent: *
+Disallow: /cpresources/
+Disallow: /vendor/
+Disallow: /.env
+Disallow: /cache/
+
+# block all URLs with a query string to avoid duplicate content
+Disallow: /*?*
+
+# Allow AI search and agent use
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: FirecrawlAgent
+User-agent: AndiBot
+User-agent: ExaBot
+User-agent: PhindBot
+User-agent: YouBot
+Allow: /
+# Disallow AI training data collection
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: Google-Extended
+Disallow: /
+# Allow traditional search indexing
+User-agent: Googlebot
+User-agent: Bingbot
+Allow: /
+

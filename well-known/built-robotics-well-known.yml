@@ -1,0 +1,98 @@
+generated: '2026-08-01'
+method: probed
+source: live GET probes of the /.well-known/ and root discovery surface
+note: >-
+  builtrobotics.com serves HTML behind a Cloudflare bot challenge (HTTP 403 with
+  cf-mitigated: challenge on every HTML path), but static text/JSON paths are served
+  normally, so the discovery probes below are reliable. everest.builtrobotics.com is
+  an S3-backed single-page app behind the same challenge; its /.well-known/* paths
+  return an S3 NoSuchKey XML 404, which is a true miss (not an SPA catch-all).
+hosts:
+- host: https://www.builtrobotics.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: built-robotics-security.txt
+    standard: RFC 9116
+  - path: /robots.txt
+    status: 200
+    content_type: text/plain
+    file: built-robotics-robots.txt
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain;charset=UTF-8
+    file: ../llms/built-robotics-llms.txt
+  - path: /llms-full.txt
+    status: 200
+    note: fetched for reference only; not committed (gitignored per pipeline policy)
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /pgp-key.txt
+    status: 404
+    note: referenced as the Encryption key by security.txt, but the URL is dead
+- host: https://built.solar
+  documents:
+  - path: /llms.txt
+    status: 200
+    note: Built Solar Technologies division site; mirrors the builtrobotics.com index
+  - path: /robots.txt
+    status: 200
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://everest.builtrobotics.com
+  note: Everest command center application host (S3 origin behind Cloudflare)
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /llms.txt
+    status: 404
+robots_ai_policy:
+  source: https://www.builtrobotics.com/robots.txt
+  allowed_ai_agents:
+  - OAI-SearchBot
+  - ChatGPT-User
+  - PerplexityBot
+  - FirecrawlAgent
+  - AndiBot
+  - ExaBot
+  - PhindBot
+  - YouBot
+  disallowed_ai_training_crawlers:
+  - GPTBot
+  - CCBot
+  - Google-Extended
+  note: >-
+    Built Robotics explicitly separates AI search/agent access (allowed) from AI
+    training-data collection (disallowed) in robots.txt — a deliberate published
+    agent-access posture even though no machine-readable API contract exists.

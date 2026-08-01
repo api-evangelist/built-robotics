@@ -1,0 +1,58 @@
+generated: '2026-08-01'
+method: probed
+source: >-
+  live discovery probes of www.builtrobotics.com, built.solar and
+  everest.builtrobotics.com (2026-08-01)
+note: >-
+  Built Robotics publishes no public API, so the usual API-contract standards are
+  not applicable rather than failed. What is recorded here is the set of web /
+  agent discovery standards the company does and does not adopt, each with the
+  evidence observed during contract discovery.
+standards:
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    https://www.builtrobotics.com/.well-known/security.txt returns HTTP 200 with
+    Contact, Expiration, Encryption, Policy and Acknowledgements fields.
+  caveat: >-
+    The Expiration value (2026-08-01T05:07:51-07:00) is at/past the probe date, and
+    the Encryption URL (https://www.builtrobotics.com/pgp-key.txt) returns 404.
+- id: llms-txt
+  conforms: true
+  evidence: >-
+    https://www.builtrobotics.com/llms.txt returns HTTP 200 — a 186-line curated
+    index of the site organized under H1 sections with link + description pairs.
+    https://built.solar/llms.txt and both /llms-full.txt variants also return 200.
+- id: robots-txt-ai-policy
+  conforms: true
+  evidence: >-
+    robots.txt distinguishes AI search/agent user-agents (allowed) from AI training
+    crawlers GPTBot, CCBot and Google-Extended (disallowed).
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found. Probed /openapi.json, /openapi.yaml,
+    /swagger.json, /v1/openapi.json, /api-docs, /docs, /redoc, /api and /api/v1 on
+    www.builtrobotics.com, built.solar and everest.builtrobotics.com.
+- id: graphql
+  conforms: false
+  evidence: No /graphql endpoint responded on any host.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented.
+- id: mcp
+  conforms: false
+  evidence: No hosted MCP server found in docs, registries or on any probed host.
+- id: a2a-agent-card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on
+    www.builtrobotics.com, built.solar and everest.builtrobotics.com.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    /.well-known/oauth-authorization-server, /.well-known/oauth-protected-resource
+    and /.well-known/openid-configuration all return 404 on every host.
+- id: rfc8615-well-known-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404 on every host.

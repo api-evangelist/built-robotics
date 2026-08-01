@@ -1,0 +1,66 @@
+generated: '2026-08-01'
+method: searched
+source: >-
+  https://pypi.org/project/rsplan/ ; https://github.com/builtrobotics ; registry
+  searches of npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and
+  crates.io
+note: >-
+  Built Robotics publishes no public API and therefore ships no API client SDKs.
+  The one first-party package found is an open-source robotics library (a
+  Reeds-Shepp path planner) released from the company's GitHub organization — it is
+  recorded here as a genuine first-party package, but it is NOT an API SDK, so no
+  `SDKs` pointer is emitted for this provider.
+packages:
+- language: python
+  registry: pypi
+  name: rsplan
+  version: 1.0.10
+  url: https://pypi.org/project/rsplan/
+  install: pip install rsplan
+  source: https://github.com/builtrobotics/rsplan
+  description: Pure Python implementation of the Reeds-Shepp path planner.
+  author: Built Robotics
+  kind: library
+  official: true
+  api_client: false
+registries_checked:
+- registry: pypi
+  result: 1 first-party package (rsplan)
+- registry: npm
+  result: none
+- registry: maven-central
+  result: none
+- registry: nuget
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: rubygems
+  result: none
+- registry: packagist
+  result: none
+- registry: crates.io
+  result: none
+github_organization:
+  url: https://github.com/builtrobotics
+  public_repos: 5
+  repos:
+  - name: rsplan
+    language: Python
+    description: Pure Python implementation of Reeds-Shepp path planner
+    url: https://github.com/builtrobotics/rsplan
+  - name: gmtx
+    language: Dockerfile
+    description: MediaMTX with the power of GStreamer.
+    url: https://github.com/builtrobotics/gmtx
+  - name: mariana-everest-deploy
+    description: Deployment repository for Everest releases (README only).
+    url: https://github.com/builtrobotics/mariana-everest-deploy
+  - name: mariana-sahara-deploy
+    description: Deployment repository for Sahara releases (README only).
+    url: https://github.com/builtrobotics/mariana-sahara-deploy
+  - name: test-everest-deploy
+    description: README only.
+    url: https://github.com/builtrobotics/test-everest-deploy
+  note: >-
+    No OpenAPI, AsyncAPI, GraphQL SDL or .proto files exist in any public repo in
+    the organization (full recursive git trees inspected 2026-08-01).

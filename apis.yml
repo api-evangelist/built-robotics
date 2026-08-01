@@ -1,17 +1,34 @@
 aid: built-robotics
 name: Built Robotics
-description: 'Built Robotics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market;
-  backed by lemnos-labs) and added to the network as a stub for full-pipeline profiling.'
+description: 'Built Robotics is a San Francisco robotics company, founded in 2016 by
+  Noah Ready-Campbell and Andrew Liang, that turns conventional heavy construction
+  equipment into AI-powered autonomous robots. Its Exosystem retrofit kit converts
+  excavators and other earthmoving machines into self-operating robots for trenching,
+  foundation excavation and pad grading, while the RPD 35 and RPS 25 autonomous pile
+  drivers install foundations for utility-scale solar farms. Machines are supervised
+  from the Everest command center, and field deployment is run through its Built Solar
+  Technologies (built.solar) division. The company reports $114M raised and 25+ commercial
+  deployments across the United States and Australia. Built Robotics publishes no public
+  developer API, SDK or machine-readable API contract; its only public developer artifact
+  is the open-source rsplan Reeds-Shepp path-planning library on PyPI and GitHub.'
+image: https://assets.builtrobotics.com/production/public/download/built_robotics_stacked.png
 url: https://raw.githubusercontent.com/api-evangelist/built-robotics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
 - Company
+- Robotics
+- Construction
+- Autonomous Systems
+- Heavy Equipment
+- Solar Energy
+- Artificial Intelligence
+- Industrial Automation
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,6 +37,67 @@ maintainers:
   email: info@apis.io
 x-backed-by:
 - lemnos-labs
+x-enrichment:
+  date: '2026-08-01'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
+x-api-surface:
+  public_api: false
+  assessed: '2026-08-01'
+  note: No public API, developer portal, SDK or machine-readable contract was found.
+    Contract discovery probed builtrobotics.com, built.solar and everest.builtrobotics.com
+    for OpenAPI/Swagger, GraphQL, MCP and A2A agent cards; all missed. The corporate
+    site is behind a Cloudflare bot challenge for HTML, but the provider's own llms.txt
+    and llms-full.txt page inventories confirm no developer or API section exists.
 common:
+- type: VulnerabilityDisclosure
+  url: security/built-robotics-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.builtrobotics.com/security-policy
+- type: DomainSecurity
+  url: security/built-robotics-domain-security.yml
+- type: WellKnown
+  url: well-known/built-robotics-well-known.yml
+- type: SecurityTxt
+  url: well-known/built-robotics-security.txt
+- type: LLMsTxt
+  url: llms/built-robotics-llms.txt
+- type: Packages
+  url: packages/built-robotics-packages.yml
+- type: Conformance
+  url: conformance/built-robotics-conformance.yml
 - type: Website
+  url: https://www.builtrobotics.com/
+- type: SecondaryMarket
   url: https://forgeglobal.com/built-robotics_stock/
+- type: Technology
+  url: https://www.builtrobotics.com/technology
+- type: Solutions
+  url: https://www.builtrobotics.com/solutions/solar-piling
+- type: About
+  url: https://www.builtrobotics.com/about/company
+- type: Press
+  url: https://www.builtrobotics.com/about/press
+- type: Support
+  url: https://www.builtrobotics.com/contact/general
+- type: Careers
+  url: https://www.builtrobotics.com/careers/work
+- type: GitHubOrganization
+  url: https://github.com/builtrobotics
+- type: TermsOfService
+  url: https://www.builtrobotics.com/legal/terms
+- type: PrivacyPolicy
+  url: https://www.builtrobotics.com/legal/privacy
+- type: CookiePolicy
+  url: https://www.builtrobotics.com/legal/cookie-policy
+- type: Newsletter
+  url: https://www.builtrobotics.com/contact/newsletter
+- type: Media
+  url: https://www.builtrobotics.com/about/downloads
+- type: LinkedIn
+  url: https://www.linkedin.com/company/builtrobotics
+- type: YouTube
+  url: https://www.youtube.com/@builtrobotics
+- type: X
+  url: https://x.com/builtrobotics
