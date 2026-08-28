@@ -11,6 +11,17 @@ description: 'Built Robotics is a San Francisco robotics company, founded in 201
   deployments across the United States and Australia. Built Robotics publishes no public
   developer API, SDK or machine-readable API contract; its only public developer artifact
   is the open-source rsplan Reeds-Shepp path-planning library on PyPI and GitHub.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://assets.builtrobotics.com/production/public/download/built_robotics_stacked.png
 url: https://raw.githubusercontent.com/api-evangelist/built-robotics/refs/heads/main/apis.yml
 x-type: company
